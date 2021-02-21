@@ -1,12 +1,21 @@
 from django.db import models
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+
+class BusinessPartner(models.Model):
+	name = models.CharField(max_length=200, null=True)
+	field = models.CharField(max_length=200, null=True)
+	contact = models.CharField(max_length=200, null=True)
+	date_created = models.DateTimeField(auto_now_add=True, null=True)
+
+class Voucher(models.Model):
+	name = models.CharField(max_length=200, null=True)
+	description = models.CharField(max_length=200, null=True)
+	date_created = models.DateTimeField(auto_now_add=True, null=True)
+	businesspartner = models.ForeignKey(BusinessPartner, on_delete=models.CASCADE)
 
 
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
 
 
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE)
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+
+
+	

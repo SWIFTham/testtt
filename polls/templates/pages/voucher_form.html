@@ -1,0 +1,27 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+    {% block title %}CleanTransport | home {% endblock %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/voucher.css' %}">  
+    {% endblock %} 
+{% block content %}
+
+<div class="col-md-5" style="padding-bottom: 20px; ">
+    <h5>Add A New Voucher</h5>
+    <hr>
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				{{form}}
+				
+				<input type="submit" name="Submit" value="submit">
+			</form>
+
+		</div>
+	</div>
+
+
+
+{% endblock content%}

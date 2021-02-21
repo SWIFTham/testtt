@@ -1,0 +1,29 @@
+{% extends 'base2.html' %}
+{% load static %}
+
+    {% block title %}CleanTransport | home {% endblock %}
+    {% block css %}
+        <link rel="stylesheet" type="text/css" href="{% static '/css/voucher.css' %}">  
+    {% endblock %} 
+{% block content %}
+<br>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+          <div class="col-md-5" style="padding-bottom: 20px; position: absolute; left:60%;">
+		    <h5>Are you sure you want to delete "{{item}}"?</h5>
+		    <hr>
+		    <div class="card card-body">			
+			<form action="{% url 'delete_voucher' item.id  %}" method="POST">
+				
+				{% csrf_token %}
+			
+				<a class="btn btn-warning" href="{% url 'home' %}">Cancel</a>
+				<input class="btn btn-danger" type="submit" name="Confirm" value="Confirm">
+			</div>
+		    </div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock content%}
