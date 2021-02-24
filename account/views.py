@@ -6,14 +6,17 @@ def register(request):
 	if request.POST:
 		form=UserRegistrationForm(request.POST)
 		if form.is_valid():
+			#print('Printing POST:', request.POST)
 			form.save()
 			return redirect('login')
-		context['register-form']=form
-
+		context['register_form']=form
+	
 	else:
-	    form=UserRegistrationForm()
-	    context['register-form']=form
-	    return render(request, "account/register.html", context)	    		
+		print('not valid')
+		form=UserRegistrationForm()
+		context['register_form']=form
+	return render(request, "register.html", context)
+	
 
 def login_view(request):
-	return render(request, "account/login.html", context)
+	return render(request, "login.html")
