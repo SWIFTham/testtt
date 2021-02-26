@@ -30,8 +30,9 @@ ALLOWED_HOSTS = []
 AUTH_USER_MODEL = "account.Account"
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = [    
      'polls.apps.PollsConfig',
+     'crispy_forms',
     'account', 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -131,3 +132,5 @@ MEDIA_URL = '/images/'
 STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

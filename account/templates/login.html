@@ -1,0 +1,55 @@
+{% extends 'base2.html' %}
+{% load crispy_forms_tags %}
+
+{% load static %}
+
+    {% block title %}CleanTransport | home {% endblock %}
+    {% block css %}
+      <style >
+      	.col-md-4{
+	position: absolute;
+	top: 100px;
+	left:30%;
+	width: 35%;
+	background-color: white;
+	padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 5px;
+	padding-top: 0px;
+	border-radius:10px;
+}
+
+.inn1{
+	margin-bottom: 20px;
+}
+.inn2{
+	margin-bottom: 20px;
+}
+
+
+      </style> 
+    {% endblock %}  
+{% block content %}	
+<div class="row">
+<div class="col-md-4">
+        <div class="page-header" style="padding: -10px;">
+        	<h2> Log in </h2>
+        </div>	
+					<form method="POST">
+						{% csrf_token %}
+
+						<div class="inn1"><input type="text" name="company_name" placeholder="company name..." class="form-control"></div>
+						<div class="inn2"><input type="password" name="password1" placeholder="Password..." class="form-control" ></div>
+
+
+						
+<button type="submit" class="btn btn-warning">log in</button>
+					</form>
+					{% for message in messages %}
+					<p id="messages" style="margin-top: 10px;">{{message}}</p>
+				{% endfor %}	
+				
+	</div>
+</div>
+
+{% endblock %}
