@@ -42,7 +42,7 @@ def login_view(request):
 
 			user = authenticate(request, username=username, password=password)
 
-			if user:
+			if user.is_authenticated:
 				login(request, user)
 				print('okkkk')
 				return redirect('home')
